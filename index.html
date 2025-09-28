@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Analyzer - リアルタイム音程チェッカー</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Sound Analyzer</h1>
+            <p>リアルタイム音程チェッカー</p>
+        </header>
+
+        <main>
+            <div class="control-section">
+                <button id="startBtn" class="btn btn-primary">
+                    <span class="icon">🎤</span> 開始
+                </button>
+                <button id="stopBtn" class="btn btn-secondary" disabled>
+                    <span class="icon">⏹️</span> 停止
+                </button>
+            </div>
+
+            <div class="display-section">
+                <div class="pitch-display">
+                    <div class="note-display">
+                        <h2>音名</h2>
+                        <div class="note-value">
+                            <span id="noteJa">-</span>
+                            <span id="noteEn">-</span>
+                        </div>
+                        <div class="octave">オクターブ: <span id="octave">-</span></div>
+                    </div>
+
+                    <div class="frequency-display">
+                        <h2>周波数</h2>
+                        <div class="frequency-value">
+                            <span id="frequency">0</span> Hz
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accuracy-section">
+                    <h2>音程の正確さ</h2>
+                    <div class="pitch-meter">
+                        <div class="meter-scale">
+                            <span>-50</span>
+                            <span>-25</span>
+                            <span>0</span>
+                            <span>+25</span>
+                            <span>+50</span>
+                        </div>
+                        <div class="meter-bar">
+                            <div id="pitchIndicator" class="indicator"></div>
+                        </div>
+                        <div class="cents-display">
+                            <span id="cents">0</span> cents
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualizer-section">
+                    <h2>波形</h2>
+                    <canvas id="waveform" width="600" height="200"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="pitch-detector.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
